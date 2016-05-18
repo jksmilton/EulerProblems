@@ -22,8 +22,13 @@ object MultiplesSum {
 
     val newList = (startPoints, endPoints, arguments).zipped.toList
 // println("highest: " + b + "; v: " + c) ;
-    newList.map{case(a: Int, b: Int, c: Int) => doAllMultiplications(a, b, c)}.reduceLeft(_+_)
-
+    var allNumbers = Set[Int]()
+    newList.foreach{ case(x, y, z) =>
+      for(i <- x to y){
+        allNumbers += i * z
+      }
+    }
+    allNumbers.sum
   }
 
   /**
@@ -58,6 +63,7 @@ object MultiplesSum {
     var total = 0
     for(i <- start to end ){
       total += i * value
+      println("multiplying: " + i + " and " + value)
     }
     total
   }

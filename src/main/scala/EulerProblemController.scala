@@ -12,7 +12,6 @@ object EulerProblemController {
 
     val abomination = (a1, a2, a3).zipped.toList
     */
-
     var input = ""
 
     while(input != "q"){
